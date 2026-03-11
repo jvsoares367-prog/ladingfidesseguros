@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>FIDES SEGUROS | Consultoria Premium de Seguros</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&amp;display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        referrerpolicy="no-referrer" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0000B0",
+                        "primary-hover": "#00008B",
+                        "whatsapp": "#25D366",
+                        "charcoal": "#1A1A1A",
+                        "light-grey": "#F9F9F9",
+                        "glass-border": "rgba(0, 0, 176, 0.1)",
+                    },
+                    fontFamily: {
+                        "sans": ["Inter", "sans-serif"],
+                        "logo": ["Montserrat", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "2xl": "1rem",
+                        "3xl": "1.5rem",
+                    },
+                    animation: {
+                        'infinite-scroll': 'infinite-scroll 40s linear infinite',
+                        'pulse-blue': 'pulse-blue 2s infinite',
+                        'ripple': 'ripple 2s infinite',
+                        'ripple-green': 'ripple-green 2s infinite',
+                        'pulse-green': 'pulse-green 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'carousel-swipe': 'carousel-swipe 25s linear infinite',
+                        'scroll-indicator-v3': 'scroll-indicator-v3 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite',
+                    },
+                    keyframes: {
+                        'infinite-scroll': {
+                            from: { transform: 'translateX(0)' },
+                            to: { transform: 'translateX(-50%)' },
+                        },
+                        'carousel-swipe': {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-100%)' }
+                        },
+                        'pulse-blue': {
+                            '0%': { boxShadow: '0 0 0 0 rgba(0, 0, 176, 0.4)' },
+                            '70%': { boxShadow: '0 0 0 10px rgba(0, 0, 176, 0)' },
+                            '100%': { boxShadow: '0 0 0 0 rgba(0, 0, 176, 0)' },
+                        },
+                        'ripple': {
+                            '0%': { transform: 'scale(0.8)', opacity: '1' },
+                            '100%': { transform: 'scale(1.8)', opacity: '0' },
+                        },
+                        'ripple-green': {
+                            '0%': { transform: 'scale(0.8)', opacity: '1' },
+                            '100%': { transform: 'scale(1.8)', opacity: '0' },
+                        },
+                        'pulse-green': {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '.5' }
+                        },
+                        'scroll-indicator-v3': {
+                            '0%': {
+                                transform: 'translateY(0) scale(1)',
+                                opacity: '0.4',
+                                filter: 'drop-shadow(0 0 0px rgba(0, 0, 176, 0)) blur(0px)'
+                            },
+                            '50%': {
+                                transform: 'translateY(18px) scale(1.1)',
+                                opacity: '1',
+                                filter: 'drop-shadow(0 0 12px rgba(0, 0, 176, 0.6)) blur(0px)'
+                            },
+                            '100%': {
+                                transform: 'translateY(0) scale(1)',
+                                opacity: '0.4',
+                                filter: 'drop-shadow(0 0 0px rgba(0, 0, 176, 0)) blur(0px)'
+                            }
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            @apply bg-white text-charcoal antialiased overflow-x-hidden;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 176, 0.1);
+        }
+        .logo-font-main {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            text-transform: lowercase;
+        }
+        .logo-font-sub {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            font-size: 0.65rem;
+            line-height: 1;
+        }
+        .partner-logo {
+            filter: grayscale(1);
+            transition: all 0.4s ease;
+            opacity: 0.6;
+        }
+        .partner-logo:hover {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        .status-glow {
+            text-shadow: 0 0 8px rgba(0, 0, 176, 0.2);
+        }
+        #bg-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background: #FFFFFF;
+        }
+        .testimonial-card {
+            @apply glass-card rounded-[24px] p-8 transition-all duration-300 border border-white/40 shadow-sm hover:shadow-xl hover:-translate-y-2;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="bg-canvas" width="1280" height="5620"></canvas>
+    <header class="sticky top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <a href="index.html"
+                    class="flex items-center leading-none origin-left hover:opacity-80 transition-opacity ml-4">
+                    <img src="assets/fides_logo_oficial.png" alt="Fides Seguros"
+                        class="h-10 md:h-14 w-auto mix-blend-multiply object-contain pointer-events-none">
+                </a>
+                <nav class="hidden lg:flex items-center space-x-10">
+                    <a class="text-sm font-semibold tracking-wide text-gray-600 hover:text-primary transition-colors"
+                        href="index.html#servicos" style="">Serviços</a>
+                    <a class="text-sm font-semibold tracking-wide text-gray-600 hover:text-primary transition-colors"
+                        href="sobre-nos.html" style="">Sobre Nós</a>
+                    <a class="text-sm font-semibold tracking-wide text-gray-600 hover:text-primary transition-colors"
+                        href="suporte.html" style="">Suporte</a>
+                    <a class="text-sm font-semibold tracking-wide text-gray-600 hover:text-primary transition-colors"
+                        href="suporte.html" style="">Nossos Clientes</a>
+                </nav>
+                <div class="flex items-center">
+                    <a class="bg-primary hover:bg-primary-hover text-white px-8 py-3 rounded-full font-bold text-sm transition-all flex items-center gap-2 shadow-lg shadow-primary/20"
+                        href="https://wa.me/5521995888291?text=Quero%20fazer%20uma%20cotacao" style="">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="pt-52 pb-40 px-6 overflow-hidden relative">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div class="space-y-8">
+                    <div class="flex items-center flex-wrap gap-4">
+                        <div
+                            class="inline-flex items-center gap-3 px-1 py-1 rounded-full border border-primary/10 bg-primary/5 backdrop-blur-sm pr-4">
+                            <span class="relative flex h-2.5 w-2.5 ml-1">
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                            </span>
+                            <span class="text-[11px] font-semibold tracking-[0.05em] text-primary uppercase status-glow"
+                                style="">Consultores Online agora</span>
+                        </div>
+                        <a class="flex items-center justify-center h-10 px-2 rounded-full hover:bg-primary/5 transition-colors animate-scroll-indicator-v3"
+                            href="#parceiros" style="">
+                            <div class="flex flex-col items-center justify-center -space-y-4">
+                                <span
+                                    class="material-symbols-outlined text-primary text-3xl select-none font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.1)]"
+                                    style="">keyboard_arrow_down</span>
+                                <span
+                                    class="material-symbols-outlined text-primary text-3xl select-none font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.1)]"
+                                    style="">keyboard_arrow_down</span>
+                            </div>
+                        </a>
+                    </div>
+                    <h1 class="text-6xl lg:text-7xl font-black leading-[1.05] tracking-tighter text-charcoal" style="">
+                        Cotação rápida <br>de <span class="text-primary" style="">Plano de Saúde</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 max-w-lg leading-relaxed font-light" style="">
+                        Consultoria de elite para quem busca proteção superior e atendimento personalizado. Otimizamos
+                        seus custos com as maiores seguradoras do país.
+                    </p>
+                    <div class="flex flex-col gap-5 pt-4">
+                        <div class="flex items-center gap-4 group">
+                            <div
+                                class="w-12 h-12 rounded-full bg-primary/5 border border-primary/10 flex items-center justify-center group-hover:border-primary/30 transition-colors">
+                                <span class="material-symbols-outlined text-primary"
+                                    style="font-variation-settings: &quot;FILL&quot; 1;">verified</span>
+                            </div>
+                            <span class="text-lg font-medium text-gray-800" style="">Comparação analítica
+                                transparente</span>
+                        </div>
+                        <div class="flex items-center gap-4 group">
+                            <div
+                                class="w-12 h-12 rounded-full bg-primary/5 border border-primary/10 flex items-center justify-center group-hover:border-primary/30 transition-colors">
+                                <span class="material-symbols-outlined text-primary" style="">bolt</span>
+                            </div>
+                            <span class="text-lg font-medium text-gray-800" style="">Atendimento
+                                instantâneo&nbsp;</span>
+                        </div>
+                    </div>
+                </div>
+                <div id="formulario-cotacao"
+                    class="bg-white/90 backdrop-blur-md p-10 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-primary/10 relative z-10">
+                    <h3 class="text-2xl font-bold mb-8 text-charcoal tracking-tight" style="">Solicite sua Análise</h3>
+                    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+                        <!-- ⚠️ Substitua 'SUA_CHAVE_AQUI' pela chave que você vai pegar no passo a passo -->
+                        <input type="hidden" name="access_key" value="1e4b0995-143f-4f32-ad0f-d239864e9792">
+                        <input type="hidden" name="subject" value="Novo Lead: Cotação Fides Seguros">
+                        <input type="hidden" name="redirect"
+                            value="https://wa.me/5521995888291?text=Acabo%20de%20enviar%20uma%20solicitacao%20de%20cotacao%20pelo%20site!">
+
+                        <div>
+                            <label class="block text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-2"
+                                style="">Nome</label>
+                            <input name="Nome" required
+                                class="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-charcoal focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-gray-300"
+                                placeholder="Seu nome" type="text">
+                        </div>
+                        <div class="grid grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-2"
+                                    style="">celular
+                                    (whatsapp)</label>
+                                <input name="Celular" required
+                                    class="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-charcoal focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-gray-300"
+                                    placeholder="(00) 00000-0000" type="tel">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-2"
+                                    style="">Tipo de
+                                    seguro</label>
+                                <select name="Tipo_Seguro"
+                                    class="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-charcoal focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all appearance-none"
+                                    required>
+                                    <option value="" disabled selected>Selecione uma opção...</option>
+                                    <option value="Plano de Saúde">Plano de Saúde</option>
+                                    <option value="Seguro Auto">Seguro Auto</option>
+                                    <option value="Seguro de Vida">Seguro de Vida</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-2"
+                                style="">E-mail
+                                (OPCIONAL)</label>
+                            <input name="Email"
+                                class="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-charcoal focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-gray-300"
+                                placeholder="seu@email.com" type="email">
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-primary hover:bg-primary-hover text-white font-extrabold py-5 rounded-xl transition-all shadow-xl shadow-primary/20 tracking-wider"
+                            style="">
+                            INICIAR COTAÇÃO AGORA
+                        </button>
+                        <p class="text-[10px] text-center text-gray-400 font-medium uppercase tracking-wider" style="">
+                            Privacidade garantida sob LGPD</p>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="py-24 bg-white/60 border-y border-gray-100 overflow-hidden" id="parceiros">
+            <div class="max-w-7xl mx-auto px-6 mb-16 text-center">
+                <h2 class="text-xs uppercase tracking-[0.4em] text-primary font-bold" style="">Nossos Parceiros:</h2>
+            </div>
+            <div class="relative flex overflow-hidden group">
+                <div
+                    class="py-4 animate-infinite-scroll flex items-center w-max group-hover:[animation-play-state:paused]">
+                    <div
+                        class="flex items-center justify-around gap-12 sm:gap-16 md:gap-24 px-6 md:px-12 w-max shrink-0">
+                        <img alt="Hapvida"
+                            class="h-10 sm:h-12 md:h-14 w-auto partner-logo mix-blend-multiply grayscale hover:grayscale-0 opacity-60 hover:opacity-100 object-contain transition-all cursor-pointer"
+                            src="assets/parceiros/hapvida_new.png">
+                        <img alt="Grupo NotreDame Intermédica"
+                            class="h-10 sm:h-12 md:h-14 w-auto partner-logo mix-blend-multiply grayscale hover:grayscale-0 opacity-60 hover:opacity-100 object-contain transition-all cursor-pointer"
+                            src="assets/parceiros/notredame_new.png">
+                        <img alt="Bradesco Saúde"
+                            class="h-10 sm:h-12 md:h-14 w-auto partner-logo mix-blend-multiply grayscale hover:grayscale-0 opacity-60 hover:opacity-100 object-contain transition-all cursor-pointer"
+                            src="assets/parceiros/bradesco_new.png">
+                        <img alt="Amil"
+                            class="h-8 sm:h-10 md:h-12 w-auto partner-logo mix-blend-multiply grayscale hover:grayscale-0 opacity-60 hover:opacity-100 object-contain transition-all cursor-pointer"
+                            src="assets/parceiros/amil_new.png">
+                        <img alt="SulAmérica Saúde"
+                            class="h-8 sm:h-10 md:h-12 w-auto partner-logo mix-blend-multiply grayscale hover:grayscale-0 opacity-60 hover:opacity-100 object-contain transition-all cursor-pointer"
+                            src="assets/parceiros/sulamerica_new.png">
+                        <img alt="Porto Saúde"
+                            class="h-10 sm:h-12 md:h-14 w-auto partner-logo mix-blend-multiply grayscale hover:grayscale-0 opacity-60 hover:opacity-100 object-contain transition-all cursor-pointer"
+                            src="assets/parceiros/porto_new.png">
+                        <img alt="Unimed"
+                            class="h-12 sm:h-16 md:h-20 w-auto partner-logo mix-blend-multiply grayscale hover:grayscale-0 opacity-60 hover:opacity-100 object-contain transition-all cursor-pointer"
+                            src="assets/parceiros/unimed.png">
+                        <img alt="Prevent Senior"
+                            class="h-10 sm:h-12 md:h-16 w-auto partner-logo grayscale hover:grayscale-0 opacity-60 hover:opacity-100 object-contain transition-all cursor-pointer"
+                            src="assets/parceiros/prevent.png">
+                        <img alt="Assim Saúde"
+                            class="h-8 sm:h-10 md:h-12 w-auto partner-logo grayscale hover:grayscale-0 opacity-60 hover:opacity-100 object-contain transition-all cursor-pointer"
+                            src="assets/parceiros/assim.png">
+                        <img alt="Leve Saúde"
+                            class="h-10 sm:h-12 md:h-16 w-auto partner-logo mix-blend-multiply grayscale hover:grayscale-0 opacity-60 hover:opacity-100 object-contain transition-all cursor-pointer"
+                            src="assets/parceiros/leve_saude.png">
+                    </div>
+                    <div
+                        class="flex items-center justify-around gap-12 sm:gap-16 md:gap-24 px-6 md:px-12 w-max shrink-0">
+                        <img alt="Hapvida"
+                            class="h-10 sm:h-12 md:h-14 w-auto partner-logo mix-blend-multiply grayscale hover:grayscale-0 opacity-60 hover:opacity-100 object-contain transition-all cursor-pointer"
+                            src="assets/parceiros/hapvida_new.png">
+                        <img alt="Grupo NotreDame Intermédica"
+                            class="h-10 sm:h-12 md:h-14 w-auto partner-logo mix-blend-multiply grayscale hover:grayscale-0 opacity-60 hover:opacity-100 object-contain transition-all cursor-pointer"
+                            src="assets/parceiros/notredame_new.png">
+                        <img alt="Bradesco Saúde"
+                            class="h-10 sm:h-12 md:h-14 w-auto partner-logo mix-blend-multiply grayscale hover:grayscale-0 opacity-60 hover:opacity-100 object-contain transition-all cursor-pointer"
+                            src="assets/parceiros/bradesco_new.png">
+                        <img alt="Amil"
+                            class="h-8 sm:h-10 md:h-12 w-auto partner-logo mix-blend-multiply grayscale hover:grayscale-0 opacity-60 hover:opacity-100 object-contain transition-all cursor-pointer"
+                            src="assets/parceiros/amil_new.png">
+                        <img alt="SulAmérica Saúde"
+                            class="h-8 sm:h-10 md:h-12 w-auto partner-logo mix-blend-multiply grayscale hover:grayscale-0 opacity-60 hover:opacity-100 object-contain transition-all cursor-pointer"
+                            src="assets/parceiros/sulamerica_new.png">
+                        <img alt="Porto Saúde"
+                            class="h-10 sm:h-12 md:h-14 w-auto partner-logo mix-blend-multiply grayscale hover:grayscale-0 opacity-60 hover:opacity-100 object-contain transition-all cursor-pointer"
+                            src="assets/parceiros/porto_new.png">
+                        <img alt="Unimed"
+                            class="h-12 sm:h-16 md:h-20 w-auto partner-logo mix-blend-multiply grayscale hover:grayscale-0 opacity-60 hover:opacity-100 object-contain transition-all cursor-pointer"
+                            src="assets/parceiros/unimed.png">
+                        <img alt="Prevent Senior"
+                            class="h-10 sm:h-12 md:h-16 w-auto partner-logo grayscale hover:grayscale-0 opacity-60 hover:opacity-100 object-contain transition-all cursor-pointer"
+                            src="assets/parceiros/prevent.png">
+                        <img alt="Assim Saúde"
+                            class="h-8 sm:h-10 md:h-12 w-auto partner-logo grayscale hover:grayscale-0 opacity-60 hover:opacity-100 object-contain transition-all cursor-pointer"
+                            src="assets/parceiros/assim.png">
+                        <img alt="Leve Saúde"
+                            class="h-10 sm:h-12 md:h-16 w-auto partner-logo mix-blend-multiply grayscale hover:grayscale-0 opacity-60 hover:opacity-100 object-contain transition-all cursor-pointer"
+                            src="assets/parceiros/leve_saude.png">
+                    </div>
+                </div>
+                <div
+                    class="absolute top-0 left-0 w-32 md:w-64 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none">
+                </div>
+                <div
+                    class="absolute top-0 right-0 w-32 md:w-64 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none">
+                </div>
+            </div>
+        </section>
+        <section class="py-48 bg-light-grey/40 backdrop-blur-sm" id="servicos">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-24">
+                    <h2 class="text-4xl lg:text-5xl font-black text-charcoal mb-6" style="">Soluções Corporativas &amp;
+                        Individuais</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto font-light" style="">Especialistas em arquitetar
+                        coberturas que se adaptam ao seu estilo de vida e necessidades empresariais.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div
+                        class="group relative bg-white/90 backdrop-blur-md rounded-[2rem] p-12 border border-gray-100 transition-all hover:-translate-y-2 hover:border-primary/20 cursor-pointer shadow-sm">
+                        <div class="mb-8">
+                            <span class="material-symbols-outlined text-5xl text-primary font-light"
+                                style="">clinical_notes</span>
+                        </div>
+                        <h3 class="text-3xl font-bold text-charcoal mb-6" style="">Planos de Saúde</h3>
+                        <p class="text-gray-600 mb-10 leading-relaxed" style="">Consultoria para PME e grandes empresas
+                            com foco em redução de sinistralidade e melhoria de rede credenciada.</p>
+                        <div class="flex flex-col gap-4 mb-10">
+                            <div class="flex items-center gap-3 text-sm text-gray-700" style="">
+                                <span class="material-symbols-outlined text-primary text-lg"
+                                    style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span> Gestão
+                                ativa de benefícios
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-gray-700" style="">
+                                <span class="material-symbols-outlined text-primary text-lg"
+                                    style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span> Redução de
+                                carências
+                            </div>
+                        </div>
+                        <a class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all"
+                            href="#" style="">
+                            Explorar Detalhes <span class="material-symbols-outlined text-sm"
+                                style="">arrow_forward</span>
+                        </a>
+                    </div>
+                    <div
+                        class="group relative bg-white/90 backdrop-blur-md rounded-[2rem] p-12 border border-gray-100 transition-all hover:-translate-y-2 hover:border-primary/20 cursor-pointer shadow-sm">
+                        <div class="mb-8">
+                            <span class="material-symbols-outlined text-5xl text-primary font-light"
+                                style="">directions_car</span>
+                        </div>
+                        <h3 class="text-3xl font-bold text-charcoal mb-6" style="">Seguro de Bens</h3>
+                        <p class="text-gray-600 mb-10 leading-relaxed" style="">Proteção total para seu automóvel, frota
+                            ou patrimônio imobiliário com as melhores assistências do mercado.</p>
+                        <div class="flex flex-col gap-4 mb-10">
+                            <div class="flex items-center gap-3 text-sm text-gray-700" style="">
+                                <span class="material-symbols-outlined text-primary text-lg"
+                                    style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span> Assistência
+                                24h VIP
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-gray-700" style="">
+                                <span class="material-symbols-outlined text-primary text-lg"
+                                    style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span> Proteção
+                                contra terceiros
+                            </div>
+                        </div>
+                        <a class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all"
+                            href="#formulario-cotacao" style="">
+                            Fazer Cotação <span class="material-symbols-outlined text-sm" style="">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-48 bg-white/40 backdrop-blur-sm overflow-hidden" id="depoimentos">
+            <div class="max-w-7xl mx-auto px-6 relative">
+                <div class="text-center mb-20">
+                    <h2 class="text-4xl lg:text-5xl font-black text-charcoal mb-4" style="">Reconhecimento de quem
+                        confia</h2>
+                    <p class="text-gray-500 text-lg font-light" style="">Depoimentos de quem escolheu a excelência da
+                        Fides Seguros</p>
+                </div>
+                <div class="relative group">
+                    <div
+                        class="flex gap-8 hide-scrollbar overflow-x-auto pb-12 snap-x snap-mandatory lg:overflow-hidden">
+                        <div class="min-w-full md:min-w-[calc(50%-16px)] lg:min-w-[calc(33.333%-22px)] snap-center">
+                            <div class="testimonial-card h-full flex flex-col">
+                                <div class="flex justify-between items-start mb-8">
+                                    <div class="flex text-primary gap-0.5">
+                                        <span class="material-symbols-outlined text-lg"
+                                            style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+                                        <span class="material-symbols-outlined text-lg"
+                                            style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+                                        <span class="material-symbols-outlined text-lg"
+                                            style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+                                        <span class="material-symbols-outlined text-lg"
+                                            style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+                                        <span class="material-symbols-outlined text-lg"
+                                            style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+                                    </div>
+
+                                </div>
+                                <p class="text-gray-700 text-lg italic mb-10 leading-relaxed flex-grow" style="">
+                                    "O atendimento da Fides superou todas as expectativas. A clareza no comparativo de
+                                    preços foi decisiva para otimizarmos nossos custos empresariais."
+                                </p>
+                                <div class="flex items-center gap-5 pt-6 border-t border-primary/5">
+                                    <img alt="Avatar"
+                                        class="w-14 h-14 rounded-full object-cover border-2 border-primary/10"
+                                        src="assets/depoimentos/ricardo.jpg" style="">
+                                    <div>
+                                        <p class="font-bold text-charcoal" style="">Ricardo Mendes</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="min-w-full md:min-w-[calc(50%-16px)] lg:min-w-[calc(33.333%-22px)] snap-center">
+                            <div class="testimonial-card h-full flex flex-col">
+                                <div class="flex justify-between items-start mb-8">
+                                    <div class="flex text-primary gap-0.5">
+                                        <span class="material-symbols-outlined text-lg"
+                                            style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+                                        <span class="material-symbols-outlined text-lg"
+                                            style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+                                        <span class="material-symbols-outlined text-lg"
+                                            style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+                                        <span class="material-symbols-outlined text-lg"
+                                            style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+                                        <span class="material-symbols-outlined text-lg"
+                                            style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+                                    </div>
+
+                                </div>
+                                <p class="text-gray-700 text-lg italic mb-10 leading-relaxed flex-grow" style="">
+                                    "Sempre tive dificuldades em entender as letras miúdas dos contratos. Com a
+                                    consultoria Fides, me senti 100% segura com as minhas escolhas."
+                                </p>
+                                <div class="flex items-center gap-5 pt-6 border-t border-primary/5">
+                                    <img alt="Avatar"
+                                        class="w-14 h-14 rounded-full object-cover border-2 border-primary/10"
+                                        src="assets/depoimentos/lays_new.png" style="">
+                                    <div>
+                                        <p class="font-bold text-charcoal" style="">Lays Rodrigues</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="min-w-full md:min-w-[calc(50%-16px)] lg:min-w-[calc(33.333%-22px)] snap-center">
+                            <div class="testimonial-card h-full flex flex-col">
+                                <div class="flex justify-between items-start mb-8">
+                                    <div class="flex text-primary gap-0.5">
+                                        <span class="material-symbols-outlined text-lg"
+                                            style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+                                        <span class="material-symbols-outlined text-lg"
+                                            style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+                                        <span class="material-symbols-outlined text-lg"
+                                            style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+                                        <span class="material-symbols-outlined text-lg"
+                                            style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+                                        <span class="material-symbols-outlined text-lg"
+                                            style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+                                    </div>
+
+                                </div>
+                                <p class="text-gray-700 text-lg italic mb-10 leading-relaxed flex-grow" style="">
+                                    "Processo de cotação extremamente veloz. Em menos de 20 minutos já estava com as
+                                    melhores opções personalizadas no meu WhatsApp."
+                                </p>
+                                <div class="flex items-center gap-5 pt-6 border-t border-primary/5">
+                                    <img alt="Avatar"
+                                        class="w-14 h-14 rounded-full object-cover border-2 border-primary/10"
+                                        src="assets/depoimentos/marcos.jpg" style="">
+                                    <div>
+                                        <p class="font-bold text-charcoal" style="">Marcos Oliveira</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute top-1/2 -translate-y-1/2 left-0 -ml-6 z-20 hidden lg:block">
+                        <button
+                            class="w-12 h-12 rounded-full bg-white shadow-lg border border-gray-100 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
+                            style="">
+                            <span class="material-symbols-outlined" style="">arrow_back</span>
+                        </button>
+                    </div>
+                    <div class="absolute top-1/2 -translate-y-1/2 right-0 -mr-6 z-20 hidden lg:block">
+                        <button
+                            class="w-12 h-12 rounded-full bg-white shadow-lg border border-gray-100 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
+                            style="">
+                            <span class="material-symbols-outlined" style="">arrow_forward</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section class="py-48 bg-light-grey/40 backdrop-blur-sm" id="faq">
+            <div class="max-w-3xl mx-auto px-6">
+                <h2 class="text-4xl font-black text-charcoal mb-20 text-center tracking-tight" style="">Dúvidas
+                    Frequentes</h2>
+                <div class="space-y-6">
+                    <details
+                        class="group bg-white/90 backdrop-blur-md rounded-2xl border border-gray-100 overflow-hidden shadow-sm"
+                        style="">
+                        <summary class="flex justify-between items-center p-8 cursor-pointer list-none" style="">
+                            <span class="text-lg font-bold text-charcoal" style="">Como funciona o processo de
+                                consultoria?</span>
+                            <span
+                                class="material-symbols-outlined text-primary group-open:rotate-45 transition-transform duration-300"
+                                style="">add</span>
+                        </summary>
+                        <div class="px-8 pb-8 text-gray-600 leading-relaxed" style="">
+                            Iniciamos com um diagnóstico rápido das suas necessidades via formulário ou WhatsApp. Em
+                            seguida, nossos especialistas consultam o mercado e apresentam um comparativo técnico de
+                            custos e benefícios.
+                        </div>
+                    </details>
+                    <details
+                        class="group bg-white/90 backdrop-blur-md rounded-2xl border border-gray-100 overflow-hidden shadow-sm"
+                        style="">
+                        <summary class="flex justify-between items-center p-8 cursor-pointer list-none" style="">
+                            <span class="text-lg font-bold text-charcoal" style="">Quais são as seguradoras
+                                parceiras?</span>
+                            <span
+                                class="material-symbols-outlined text-primary group-open:rotate-45 transition-transform duration-300"
+                                style="">add</span>
+                        </summary>
+                        <div class="px-8 pb-8 text-gray-600 leading-relaxed" style="">
+                            Operamos com todas as líderes do setor, garantindo que você tenha acesso a redes
+                            credenciadas nacionais e os serviços de assistência mais bem avaliados.
+                        </div>
+                    </details>
+                    <details
+                        class="group bg-white/90 backdrop-blur-md rounded-2xl border border-gray-100 overflow-hidden shadow-sm"
+                        open="" style="">
+                        <summary class="flex justify-between items-center p-8 cursor-pointer list-none" style="">
+                            <span class="text-lg font-bold text-charcoal" style="">Há custos adicionais para o
+                                cliente?</span>
+                            <span
+                                class="material-symbols-outlined text-primary group-open:rotate-45 transition-transform duration-300"
+                                style="">add</span>
+                        </summary>
+                        <div class="px-8 pb-8 text-gray-600 leading-relaxed" style="">
+                            Não. Você recebe consultoria especializada sem pagar nada a mais por isso.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+        <section class="py-40">
+            <div class="max-w-6xl mx-auto px-6">
+                <div
+                    class="bg-primary rounded-[3rem] p-16 lg:p-24 text-center border border-primary relative overflow-hidden shadow-2xl">
+                    <div class="absolute inset-0 opacity-10">
+                        <div
+                            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_70%)]">
+                        </div>
+                    </div>
+                    <div class="relative z-10">
+                        <h2 class="text-5xl lg:text-6xl font-black text-white mb-8 tracking-tighter" style="">Você
+                            merece o melhor.</h2>
+                        <p class="text-white/80 text-xl mb-14 max-w-xl mx-auto font-light leading-relaxed" style="">
+                            Junte-se a centenas de clientes que elevaram seu patamar de proteção com a FIDES Seguros.
+                        </p>
+                        <div class="flex flex-col sm:flex-row justify-center gap-6">
+                            <a class="bg-white text-primary px-12 py-5 rounded-full font-black text-lg hover:bg-gray-100 transition-all flex items-center justify-center gap-2"
+                                href="https://wa.me/5521995888291?text=Quero%20fazer%20uma%20cotacao" style="">Cotação
+                                Gratuita</a>
+                            <a class="border border-white/40 text-white px-12 py-5 rounded-full font-black text-lg hover:bg-white/10 transition-all flex items-center justify-center gap-2"
+                                href="suporte.html" style="">
+                                <i class="fa-brands fa-whatsapp"></i>
+                                WHATSAPP
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-white/80 backdrop-blur-md border-t border-gray-100 pt-32 pb-12">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-16 mb-24">
+            <div class="space-y-8">
+                <a href="index.html"
+                    class="flex items-center leading-none origin-left hover:opacity-80 transition-opacity">
+                    <img src="assets/fides_logo_oficial.png" alt="Fides Seguros"
+                        class="h-14 md:h-16 w-auto mix-blend-multiply object-contain pointer-events-none opacity-90">
+                </a>
+                <p class="text-sm text-gray-500 leading-relaxed" style="">Consultoria especializada em gestão de riscos
+                    e benefícios. Atendimento premium para perfis exigentes.</p>
+            </div>
+            <div>
+                <h5 class="text-charcoal font-bold mb-8 uppercase tracking-widest text-xs" style="">Serviços</h5>
+                <ul class="space-y-4 text-sm text-gray-500">
+                    <li class="" style=""><a class="hover:text-primary transition-colors" href="saude-empresarial.html"
+                            style="">Saúde Empresarial</a></li>
+                    <li class="" style=""><a class="hover:text-primary transition-colors" href="saude-individual.html"
+                            style="">Saúde Individual</a></li>
+                    <li class="" style=""><a class="hover:text-primary transition-colors" href="seguro-frota.html"
+                            style="">Seguro de Frota</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-charcoal font-bold mb-8 uppercase tracking-widest text-xs" style="">Institucional</h5>
+                <ul class="space-y-4 text-sm text-gray-500">
+                    <li class="" style=""><a class="hover:text-primary transition-colors" href="sobre-nos.html"
+                            style="">Sobre a Corretora</a></li>
+                    <li class="" style=""><a class="hover:text-primary transition-colors" href="compliance.html"
+                            style="">Compliance</a></li>
+                    <li class="" style=""><a class="hover:text-primary transition-colors" href="lgpd.html"
+                            style="">LGPD</a>
+                    </li>
+                    <li class="" style=""><a class="hover:text-primary transition-colors" href="index.html#faq"
+                            style="">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-charcoal font-bold mb-8 uppercase tracking-widest text-xs" style="">Suporte</h5>
+                <ul class="space-y-4 text-sm text-gray-500">
+                    <li class="flex items-center gap-3" style=""><i class="fa-brands fa-whatsapp text-primary text-lg"
+                            style=""></i>fidesseguros@gmail.com</li>
+                    <li class="flex items-center gap-3" style=""><span
+                            class="material-symbols-outlined text-primary text-sm" style="">location_on</span>Rua Irineu
+                        Ferreira, 374 - RJ</li>
+                </ul>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto px-6 border-t border-gray-100 pt-12 flex flex-col md:flex-row justify-between items-center gap-6">
+            <p class="text-[10px] text-gray-400 uppercase tracking-widest" style="">© 2026 FIDES SEGUROS - REGISTRO
+                SUSEP: 25117168-0. Todos os direitos reservados.</p>
+            <div class="flex gap-6">
+                <a class="text-gray-400 hover:text-primary transition-colors" href="#" style=""><span
+                        class="material-symbols-outlined" style="">public</span></a>
+                <a class="text-gray-400 hover:text-primary transition-colors" href="#" style=""><i
+                        class="fa-brands fa-whatsapp text-xl" style=""></i></a>
+            </div>
+        </div>
+    </footer>
+    <div class="fixed bottom-10 right-10 z-[100]">
+        <div class="absolute inset-0 animate-ripple-green bg-primary/20 rounded-full"></div>
+        <a class="relative w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center shadow-[0_10px_40px_rgba(37,211,102,0.4)] hover:scale-110 transition-transform group"
+            href="https://wa.me/5521995888291?text=Quero%20fazer%20uma%20cotacao" style="">
+            <i class="fa-brands fa-whatsapp text-3xl"></i>
+            <span
+                class="absolute right-full mr-6 bg-charcoal text-white text-[10px] font-bold py-3 px-5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-white/10 pointer-events-none uppercase tracking-widest"
+                style="">WhatsApp</span>
+        </a>
+    </div>
+    <script>
+            (function () {
+                const canvas = document.getElementById('bg-canvas');
+                const ctx = canvas.getContext('2d');
+                let spheres = [];
+                const sphereCount = 28;
+                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                function init() {
+                    resize();
+                    createSpheres();
+                    if (!prefersReducedMotion) {
+                        animate();
+                    } else {
+                        render();
+                    }
+                }
+                function resize() {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                }
+                class Sphere {
+                    constructor() {
+                        this.reset();
+                        this.y = Math.random() * canvas.height;
+                        this.x = Math.random() * canvas.width;
+                    }
+                    reset() {
+                        this.size = 4 + (Math.random() * 20);
+                        if (Math.random() > 0.3) {
+                            this.size = 6 + (Math.random() * 8);
+                        }
+                        this.opacity = 0.25 + (Math.random() * 0.3);
+                        const edge = Math.floor(Math.random() * 4);
+                        if (edge === 0) { // Top
+                            this.x = Math.random() * canvas.width;
+                            this.y = -this.size;
+                            this.vx = (Math.random() - 0.5) * 0.4;
+                            this.vy = 0.2 + Math.random() * 0.5;
+                        } else if (edge === 1) { // Right
+                            this.x = canvas.width + this.size;
+                            this.y = Math.random() * canvas.height;
+                            this.vx = -(0.2 + Math.random() * 0.5);
+                            this.vy = (Math.random() - 0.5) * 0.4;
+                        } else if (edge === 2) { // Bottom
+                            this.x = Math.random() * canvas.width;
+                            this.y = canvas.height + this.size;
+                            this.vx = (Math.random() - 0.5) * 0.4;
+                            this.vy = -(0.2 + Math.random() * 0.5);
+                        } else { // Left
+                            this.x = -this.size;
+                            this.y = Math.random() * canvas.height;
+                            this.vx = 0.2 + Math.random() * 0.5;
+                            this.vy = (Math.random() - 0.5) * 0.4;
+                        }
+                        this.angle = Math.random() * Math.PI * 2;
+                        this.amplitude = 0.1 + Math.random() * 0.4;
+                        this.speed = 0.002 + Math.random() * 0.005;
+                    }
+                    update() {
+                        this.angle += this.speed;
+                        this.x += this.vx + Math.cos(this.angle) * this.amplitude;
+                        this.y += this.vy + Math.sin(this.angle) * this.amplitude;
+                        if (this.x < -this.size * 2 || this.x > canvas.width + this.size * 2 ||
+                            this.y < -this.size * 2 || this.y > canvas.height + this.size * 2) {
+                            this.reset();
+                        }
+                    }
+                    draw() {
+                        const gradient = ctx.createRadialGradient(
+                            this.x - this.size * 0.3, this.y - this.size * 0.3, this.size * 0.1,
+                            this.x, this.y, this.size
+                        );
+                        gradient.addColorStop(0, `rgba(0, 0, 176, ${this.opacity})`);
+                        gradient.addColorStop(1, `rgba(0, 0, 176, ${this.opacity * 0.4})`);
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                        ctx.fillStyle = gradient;
+                        ctx.fill();
+                    }
+                }
+                function createSpheres() {
+                    spheres = [];
+                    for (let i = 0; i < sphereCount; i++) {
+                        spheres.push(new Sphere());
+                    }
+                }
+                function render() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    spheres.forEach(s => s.draw());
+                }
+                function animate() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    spheres.forEach(s => {
+                        s.update();
+                        s.draw();
+                    });
+                    requestAnimationFrame(animate);
+                }
+                window.addEventListener('resize', () => {
+                    resize();
+                    if (prefersReducedMotion) render();
+                });
+                init();
+            })();
+    </script>
+
+</body>
+
+</html>
