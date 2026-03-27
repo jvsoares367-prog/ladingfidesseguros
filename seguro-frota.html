@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>FIDES SEGUROS - Seguro de Frota</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Montserrat:wght@700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0000b2",
+                        "background-light": "#f5f5f8",
+                        "background-dark": "#0f0f23",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "logo": ["Montserrat", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .bg-blur-sphere {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 0, 178, 0.08) 0%, rgba(0, 0, 178, 0) 70%);
+            border-radius: 50%;
+            z-index: -1;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+
+    <style>
+        .logo-font-main {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+        }
+
+        .logo-font-sub {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.8rem;
+            letter-spacing: 2.5px;
+            margin-top: -8px;
+            margin-left: 2px;
+            text-transform: uppercase;
+        }
+
+        .text-charcoal {
+            color: #1f2937;
+        }
+    </style>
+
+
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen relative overflow-x-hidden">
+    <div class="bg-blur-sphere top-[-100px] right-[-50px]"></div>
+    <div class="bg-blur-sphere bottom-[20%] left-[-100px]"></div>
+    <header class="sticky top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <a href="index.html"
+                    class="flex items-center leading-none origin-left hover:opacity-80 transition-opacity ml-4">
+                    <img src="assets/fides_logo_oficial.png" alt="Fides Seguros"
+                        class="h-10 md:h-14 w-auto mix-blend-multiply object-contain pointer-events-none">
+                </a>
+                <nav class="hidden lg:flex items-center space-x-10">
+                    <a class="text-sm font-semibold tracking-wide text-gray-600 hover:text-primary transition-colors"
+                        href="index.html#servicos" style="">Serviços</a>
+                    <a class="text-sm font-semibold tracking-wide text-gray-600 hover:text-primary transition-colors"
+                        href="sobre-nos.html" style="">Sobre Nós</a>
+                    <a class="text-sm font-semibold tracking-wide text-gray-600 hover:text-primary transition-colors"
+                        href="suporte.html" style="">Suporte</a>
+                    <a class="text-sm font-semibold tracking-wide text-gray-600 hover:text-primary transition-colors"
+                        href="suporte.html" style="">Nossos Clientes</a>
+                </nav>
+                <div class="flex items-center">
+                    <a class="bg-primary hover:bg-primary-hover text-white px-8 py-3 rounded-full font-bold text-sm transition-all flex items-center gap-2 shadow-lg shadow-primary/20"
+                        href="https://wa.me/5521995888291?text=Quero%20fazer%20uma%20cotacao" style="">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-7xl mx-auto px-4 py-10 md:py-20">
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
+            <div class="space-y-6">
+                <h2 class="text-4xl md:text-6xl font-black text-slate-900 dark:text-white leading-[1.1] tracking-tight">
+                    Seguro de Frota
+                </h2>
+                <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-xl">
+                    Eficiência e proteção para o patrimônio da sua empresa. Garanta a continuidade operacional com
+                    gestão inteligente de riscos e suporte especializado para sua frota de veículos.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <button
+                        class="bg-primary text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 shadow-xl shadow-primary/30 hover:scale-[1.02] active:scale-[0.98] transition-all"
+                        onclick="window.location.href='https://wa.me/5521995888291?text=Quero%20fazer%20uma%20cotacao'">
+                        Solicitar Cotação
+                        <span class="material-symbols-outlined">trending_flat</span>
+                    </button>
+                </div>
+            </div>
+            <div class="relative group">
+                <div
+                    class="absolute -inset-4 bg-primary/5 rounded-3xl blur-2xl group-hover:bg-primary/10 transition-colors">
+                </div>
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                    <img alt="Frota de caminhões brancos alinhados" class="w-full aspect-video object-cover"
+                        data-alt="Frota de veículos logísticos modernos alinhados" src="assets/truck_fleet_bg.png" />
+                </div>
+            </div>
+        </section>
+        <section class="mb-24">
+            <div class="text-center mb-12">
+                <h3 class="text-2xl font-bold mb-2">Diferenciais Estratégicos</h3>
+                <div class="w-12 h-1 bg-primary mx-auto rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div
+                    class="glass-card p-8 rounded-xl shadow-sm hover:shadow-xl transition-all border border-slate-200 dark:bg-slate-900/50 dark:border-slate-800">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-primary text-3xl">dashboard_customize</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Gestão Integrada</h4>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Controle centralizado de apólices e assistência 24h para todos os veículos da sua operação em um
+                        único painel.
+                    </p>
+                </div>
+                <div
+                    class="glass-card p-8 rounded-xl shadow-sm hover:shadow-xl transition-all border border-slate-200 dark:bg-slate-900/50 dark:border-slate-800">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-primary text-3xl">verified_user</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Proteção Total</h4>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Cobertura completa contra acidentes, roubo, furto e danos a terceiros, garantindo segurança
+                        patrimonial.
+                    </p>
+                </div>
+                <div
+                    class="glass-card p-8 rounded-xl shadow-sm hover:shadow-xl transition-all border border-slate-200 dark:bg-slate-900/50 dark:border-slate-800">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-primary text-3xl">directions_car</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Automóveis Executivos</h4>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Opções exclusivas para frotas corporativas premium com serviços VIP e assistência prioritária
+                        diferenciada.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section
+            class="relative py-16 px-6 rounded-3xl overflow-hidden bg-primary/5 dark:bg-primary/10 border border-primary/10">
+            <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+                <div class="absolute top-[-50%] left-[-20%] w-[100%] h-[200%] bg-primary blur-[100px] rounded-full">
+                </div>
+            </div>
+            <div class="relative z-10 max-w-2xl mx-auto text-center space-y-8">
+                <h3 class="text-3xl font-bold">Pronto para proteger sua frota?</h3>
+                <p class="text-slate-600 dark:text-slate-400">Nossos especialistas estão prontos para desenhar um plano
+                    sob medida para sua necessidade operacional.</p>
+                <button
+                    class="bg-primary hover:bg-[#20ba5a] text-white px-10 py-4 rounded-xl font-bold flex items-center gap-3 mx-auto shadow-lg transition-transform hover:scale-105 active:scale-95"
+                    onclick="window.location.href='https://wa.me/5521995888291?text=Quero%20fazer%20uma%20cotacao'">
+                    <svg class="w-6 h-6 fill-current" viewbox="0 0 24 24">
+                        <path
+                            d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.417-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.305 1.652zm6.599-3.835c1.787.955 3.51 1.591 5.305 1.591 5.462 0 9.902-4.44 9.904-9.901.001-2.646-1.03-5.133-2.903-7.007-1.871-1.872-4.359-2.903-7.004-2.903-5.464 0-9.903 4.44-9.905 9.903 0 2.036.622 3.935 1.79 5.517l-.999 3.65 3.74-.98zm11.387-5.464c-.301-.15-1.779-.879-2.053-.979-.275-.1-.475-.149-.675.15-.199.299-.772.979-.948 1.174-.175.195-.351.219-.652.069-.302-.15-1.271-.469-2.422-1.494-.894-.797-1.498-1.782-1.674-2.081-.175-.299-.019-.461.131-.61.137-.133.302-.35.452-.524.151-.174.2-.299.301-.498.101-.199.05-.374-.025-.524-.075-.15-.675-1.624-.925-2.224-.244-.589-.493-.51-.675-.519-.174-.01-.374-.01-.575-.01-.2 0-.525.075-.799.374-.275.299-1.05 1.024-1.05 2.5 0 1.474 1.074 2.897 1.224 3.097.15.199 2.112 3.226 5.115 4.526.714.309 1.271.494 1.706.632.716.227 1.369.195 1.884.118.574-.085 1.779-.724 2.028-1.424.25-.699.25-1.299.175-1.424-.075-.125-.275-.199-.575-.349z">
+                        </path>
+                    </svg>
+                    Solicitar Cotação de Frota
+                </button>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-white/80 backdrop-blur-md border-t border-gray-100 pt-32 pb-12">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-16 mb-24">
+            <div class="space-y-8">
+                <a href="index.html"
+                    class="flex items-center leading-none origin-left hover:opacity-80 transition-opacity">
+                    <img src="assets/fides_logo_oficial.png" alt="Fides Seguros"
+                        class="h-14 md:h-16 w-auto mix-blend-multiply object-contain pointer-events-none opacity-90">
+                </a>
+                <p class="text-sm text-gray-500 leading-relaxed" style="">Consultoria especializada em gestão de riscos
+                    e benefícios. Atendimento premium para perfis exigentes.</p>
+            </div>
+            <div>
+                <h5 class="text-charcoal font-bold mb-8 uppercase tracking-widest text-xs" style="">Serviços</h5>
+                <ul class="space-y-4 text-sm text-gray-500">
+                    <li class="" style=""><a class="hover:text-primary transition-colors" href="saude-empresarial.html"
+                            style="">Saúde Empresarial</a></li>
+                    <li class="" style=""><a class="hover:text-primary transition-colors" href="saude-individual.html"
+                            style="">Saúde Individual</a></li>
+                    <li class="" style=""><a class="hover:text-primary transition-colors" href="seguro-frota.html"
+                            style="">Seguro de Frota</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-charcoal font-bold mb-8 uppercase tracking-widest text-xs" style="">Institucional</h5>
+                <ul class="space-y-4 text-sm text-gray-500">
+                    <li class="" style=""><a class="hover:text-primary transition-colors" href="sobre-nos.html"
+                            style="">Sobre a Corretora</a></li>
+                    <li class="" style=""><a class="hover:text-primary transition-colors" href="compliance.html"
+                            style="">Compliance</a></li>
+                    <li class="" style=""><a class="hover:text-primary transition-colors" href="lgpd.html"
+                            style="">LGPD</a>
+                    </li>
+                    <li class="" style=""><a class="hover:text-primary transition-colors" href="index.html#faq"
+                            style="">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-charcoal font-bold mb-8 uppercase tracking-widest text-xs" style="">Suporte</h5>
+                <ul class="space-y-4 text-sm text-gray-500">
+                    <li class="flex items-center gap-3" style=""><span class="material-symbols-outlined text-primary text-lg">mail</span>email@grupofidesseguros.com.br</li>
+                    <li class="flex items-center gap-3" style=""><span
+                            class="material-symbols-outlined text-primary text-sm" style="">location_on</span>Rua Irineu
+                        Ferreira, 374 - RJ</li>
+                </ul>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto px-6 border-t border-gray-100 pt-12 flex flex-col md:flex-row justify-between items-center gap-6">
+            <p class="text-[10px] text-gray-400 uppercase tracking-widest" style="">© 2026 FIDES SEGUROS - REGISTRO
+                SUSEP: 25117168-0. Todos os direitos reservados.</p>
+            <div class="flex gap-6">
+                <a class="text-gray-400 hover:text-primary transition-colors" href="#" style=""><span
+                        class="material-symbols-outlined" style="">public</span></a>
+                <a class="text-gray-400 hover:text-primary transition-colors" href="#" style=""><i
+                        class="fa-brands fa-whatsapp text-xl" style=""></i></a>
+            </div>
+        </div>
+    </footer>
+    <nav
+        class="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 px-6 py-3 flex justify-between items-center z-50">
+        <a class="flex flex-col items-center gap-1 text-primary" href="#">
+            <span class="material-symbols-outlined">home</span>
+            <span class="text-[10px] font-bold">Início</span>
+        </a>
+        <a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+            <span class="material-symbols-outlined">shield</span>
+            <span class="text-[10px]">Seguros</span>
+        </a>
+        <a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+            <span class="material-symbols-outlined">support_agent</span>
+            <span class="text-[10px]">Suporte</span>
+        </a>
+        <a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+            <span class="material-symbols-outlined">person</span>
+            <span class="text-[10px]">Perfil</span>
+        </a>
+    </nav>
+</body>
+
+</html>
