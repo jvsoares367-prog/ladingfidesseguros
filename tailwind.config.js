@@ -4,6 +4,7 @@ module.exports = {
     "./*.html",
     "./blog/**/*.html",
   ],
+  safelist: ["md:h-[72px]"],
   darkMode: "class",
   theme: {
     extend: {
