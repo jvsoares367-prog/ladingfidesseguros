@@ -2,6 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white text-charcoal antialiased overflow-x-hidden;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 176, 0.1);
+  }
+  .logo-font-main {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    text-transform: lowercase;
+  }
+  .logo-font-sub {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    font-size: 0.65rem;
+    line-height: 1;
+  }
+  .partner-logo {
+    filter: grayscale(1);
+    transition: all 0.4s ease;
+    opacity: 0.6;
+  }
+  .partner-logo:hover {
+    filter: grayscale(0);
+    opacity: 1;
+  }
+  .testimonial-card {
+    @apply rounded-[24px] p-8 transition-all duration-300 border border-white/40 shadow-sm hover:shadow-xl hover:-translate-y-2;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  .status-glow {
+    text-shadow: 0 0 8px rgba(0, 0, 176, 0.2);
+  }
+}
+
+@layer utilities {
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Canvas de fundo - sem @apply (fora do Tailwind) */
+#bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: #FFFFFF;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
 /* Respeita preferência de movimento reduzido (acessibilidade) */
 @media (prefers-reduced-motion: reduce) {
   *,
