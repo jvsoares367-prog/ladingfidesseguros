@@ -84,6 +84,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         var host = window.location.hostname;
         var path = window.location.pathname;
         var proto = window.location.protocol;
+        if (host === 'localhost' || host === '127.0.0.1') return; // teste local no computador
         var isWww = host === 'www.grupofidesseguros.com.br';
         var isHttp = proto === 'http:';
         var isIndex = path.endsWith('/index.html');
@@ -254,12 +255,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div id="formulario-cotacao"
                     class="bg-white/90 backdrop-blur-md p-10 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-primary/10 relative z-10 w-full">
                     <h3 class="text-2xl font-bold mb-8 text-charcoal tracking-tight" style="">Solicite sua Análise</h3>
-                    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6" onsubmit="if(typeof fbq !== 'undefined') fbq('track', 'Lead');">
-                        <!-- ⚠️ Substitua 'SUA_CHAVE_AQUI' pela chave que você vai pegar no passo a passo -->
-                        <input type="hidden" name="access_key" value="1e4b0995-143f-4f32-ad0f-d239864e9792">
-                        <input type="hidden" name="subject" value="Novo Lead: Cotação Fides Seguros">
-                        <input type="hidden" name="redirect"
-                            value="https://wa.me/5521995888291?text=Ol%C3%A1%2C%20quero%20fazer%20uma%20cota%C3%A7%C3%A3o%20agora">
+                    <form id="form-cotacao" class="space-y-6">
 
                         <div>
                             <label class="block text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-2"
@@ -307,6 +303,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <p class="text-[10px] text-center text-gray-400 font-medium uppercase tracking-wider" style="">
                             Privacidade garantida sob LGPD</p>
                     </form>
+                    <script>
+                        // Monta a mensagem com os dados preenchidos e abre o WhatsApp da Fides
+                        (function () {
+                            var form = document.getElementById('form-cotacao');
+                            var WHATSAPP = '5521995888291';
+                            form.addEventListener('submit', function (e) {
+                                e.preventDefault();
+                                if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+
+                                var dados = Object.fromEntries(new FormData(form));
+                                var msg = 'Olá, quero fazer uma cotação agora.'
+                                    + '\n\nNome: ' + (dados.Nome || '').trim()
+                                    + '\nCelular: ' + (dados.Celular || '').trim()
+                                    + '\nTipo de seguro: ' + (dados.Tipo_Seguro || '');
+                                if ((dados.Email || '').trim()) msg += '\nE-mail: ' + dados.Email.trim();
+
+                                window.location.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(msg);
+                            });
+                        })();
+                    </script>
                 </div>
             </div>
         </section>
